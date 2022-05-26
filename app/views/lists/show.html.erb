@@ -1,3 +1,14 @@
 <h1><%= @list.name %></h1>
 
-<%# TODO: Show bookmarks %>
+<%# TODO: Make this better... %>
+<ul>
+  <% @list.bookmarks.each do |bookmark| %>
+    <li><ul>
+      <li><%= bookmark.movie.title %></li>
+      <li><%= bookmark.movie.overview %></li>
+      <li><%= bookmark.comment %></li>
+    </ul></li>
+  <% end %>
+</ul>
+
+<p><%= link_to "Add a movie", new_list_bookmark_path(@list) %></p>
